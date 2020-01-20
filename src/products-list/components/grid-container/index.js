@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import GridRow from "../grid-row";
 import GridHeader from "../grid-header";
 import PropTypes from "prop-types";
-import { DEFAULT_HEADER_COLUMNS } from "../../common/global-constants";
+import { DEFAULT_HEADER_COLUMNS } from "../../../common/global-constants";
 
 class GridContainer extends Component {
   defaultProps = {
@@ -11,6 +11,14 @@ class GridContainer extends Component {
   };
 
   render() {
+    const productsData = [
+      {
+        id: "id",
+        title: "title",
+        description: "blabla"
+      }
+    ];
+
     return (
       <Container>
         <>
@@ -18,7 +26,7 @@ class GridContainer extends Component {
             display={this.props.displayHeader}
             columns={DEFAULT_HEADER_COLUMNS}
           />
-          {this.props.dataRows.map(row => (
+          {productsData.map(row => (
             <GridRow
               id={row.id}
               title={row.title}
