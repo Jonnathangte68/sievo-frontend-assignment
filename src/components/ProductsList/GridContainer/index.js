@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import GridRow from "../GridRow";
 import GridHeader from "../GridHeader";
 import PropTypes from "prop-types";
-import { DEFAULT_HEADER_COLUMNS } from "@Commons/global-constants";
+import { DEFAULT_HEADER_COLUMNS } from "@Commons/GlobalConstants";
 
 class GridContainer extends Component {
   defaultProps = {
