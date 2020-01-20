@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import FilterContainer from "./filter-box";
-import ProductsList from "./products-list";
+import FilterContainer from "../FilterBox";
+import ProductsList from "../ProductsList";
 
 class App extends Component {
   render() {

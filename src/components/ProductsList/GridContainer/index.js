@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import GridRow from "../grid-row";
-import GridHeader from "../grid-header";
+import GridRow from "../GridRow";
+import GridHeader from "../GridHeader";
 import PropTypes from "prop-types";
-import { DEFAULT_HEADER_COLUMNS } from "../../../common/global-constants";
+import { DEFAULT_HEADER_COLUMNS } from "@Commons/global-constants";
 
 class GridContainer extends Component {
   defaultProps = {

@@ -11,7 +11,8 @@ module.exports = {
         baseUrl: "./",
         aliases: {
           "@app": "./src/App.js",
-          "@Source": "./src/*"
+          "@Source": "./src/*",
+          "@Commons": "./src/common"
         }
       }
     }

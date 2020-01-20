@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GridContainer from "./components/grid-container";
+import GridContainer from "./GridContainer";
 
 class ProductGrid extends Component {
   render() {

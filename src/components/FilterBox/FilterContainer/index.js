@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import FilterForm from "../filter-form";
+import FilterForm from "../FilterForm";
 import styles from "./styles.module.css";
 
 class FilterContainer extends Component {

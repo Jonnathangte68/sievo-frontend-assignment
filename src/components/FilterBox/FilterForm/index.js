@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
-import FilterButtonContainer from "../filter-button-container";
+import FilterButtonContainer from "../FilterButtonContainer";
 
 class FilterForm extends Component {
   render() {

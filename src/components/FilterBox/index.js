@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FilterContainer from "./components/filter-container";
+import FilterContainer from "./FilterContainer";
 
 class FilterComponent extends Component {
   render() {
