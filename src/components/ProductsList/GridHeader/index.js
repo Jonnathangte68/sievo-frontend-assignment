@@ -17,7 +17,6 @@ class GridHeader extends Component {
   };
 
   render() {
-    console.log("render header.");
     return this.renderHeaderRow();
   }
 }

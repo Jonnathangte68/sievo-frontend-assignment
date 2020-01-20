@@ -8,3 +8,5 @@ export const DEFAULT_HEADER_COLUMNS = [
   "currency",
   "complexity"
 ];
+
+export const FETCH_PRODUCTS_API_REQUEST = "api/data";
