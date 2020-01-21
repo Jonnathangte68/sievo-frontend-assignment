@@ -1,29 +1,30 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
+import { DEFAULT_HEADER_COLUMNS } from "@Commons/GlobalConstants";
 import styles from "./styles.module.css";
 
 class GridHeader extends Component {
-  renderHeaderRow = () => {
-    return (
-      <Row>
-        {this.props.columns.map(col => (
-          <Col key={col} className={styles.columnTextStyle}>
-            {col}
-          </Col>
-        ))}
-      </Row>
-    );
-  };
+  renderHeaderRow = columns => (
+    <Row>
+      {columns.map(col => (
+        <Col key={col.key} className={styles.columnTextStyle}>
+          {col.name}
+        </Col>
+      ))}
+    </Row>
+  );
 
   render() {
-    return this.renderHeaderRow();
+    const columns = this.props.columns
+      ? this.props.columns
+      : DEFAULT_HEADER_COLUMNS;
+    return this.renderHeaderRow(columns);
   }
 }
 
 GridHeader.propTypes = {
-  display: PropTypes.bool.isRequired,
-  columns: PropTypes.array.isRequired
+  columns: PropTypes.array
 };
 
 export default GridHeader;
