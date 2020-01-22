@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GridContainer from "./GridContainer";
-import ThemeContext from "@Commons/Context";
+import { ProductsContext } from "@Commons/Context";
 import ProductConsumerApi from "../../services/ProductConsumerApi";
 import { FETCH_PRODUCTS_API_REQUEST } from "../../common/GlobalConstants";
 
@@ -32,14 +32,14 @@ class ProductGrid extends Component {
 
   render() {
     return (
-      <ThemeContext.Provider
+      <ProductsContext.Provider
         value={{
           loading: this.state.loading,
           products: this.state.products
         }}
       >
         <GridContainer />
-      </ThemeContext.Provider>
+      </ProductsContext.Provider>
     );
   }
 }

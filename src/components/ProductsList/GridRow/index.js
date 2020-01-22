@@ -1,27 +1,18 @@
 import React, { Component } from "react";
-import { Row, Col, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import uuid from "react-uuid";
-import styles from "./styles.module.css";
+import GridCol from "../GridCol";
 
 class GridRow extends Component {
-  getCellText = column => !!column && column !== "NULL" && column;
-
-  renderTooltip(props) {
-    return <Tooltip {...props}>Simple tooltip</Tooltip>;
-  }
+  getCellText = column => (column && column !== "NULL" ? String(column) : "");
 
   renderCells() {
     let results = [];
     const values = Object.values(this.props.columns);
     for (const column of values) {
-      const tooltip = this.renderTooltip();
       results.push(
-        <OverlayTrigger key={uuid()} placement="top" overlay={tooltip}>
-          <Col key={uuid()} className={styles.columnTextStyle}>
-            {this.getCellText(column)}
-          </Col>
-        </OverlayTrigger>
+        <GridCol key={uuid()} columnTitle={this.getCellText(column)} />
       );
     }
     return results;
