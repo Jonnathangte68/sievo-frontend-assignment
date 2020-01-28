@@ -1,0 +1,14 @@
+.col {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: auto;
+}
+.regularCol {
+  flex: 2;
+}
+.doubleCol {
+  flex: 3;
+}
+.tinyCol {
+  flex: 1;
+}

@@ -1,13 +1,10 @@
 import axios from "axios";
 
 class ProductConsumerApi {
-  base_path = "https://sievo-react-assignment.azurewebsites.net/";
-
-  ProductConsumerApi(base_path) {
-    this.base_path = base_path;
-  }
+  base_path = process.env.REACT_APP_API_URL;
 
   fetchGetRequest(request, callback) {
+    console.log("request to send: ", process.env.REACT_APP_API_URL);
     const compositeRequest = `${this.base_path}${request}`;
     axios
       .get(compositeRequest)

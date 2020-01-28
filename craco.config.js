@@ -10,7 +10,7 @@ module.exports = {
         source: "options",
         baseUrl: "./",
         aliases: {
-          "@app": "./src/App.js",
+          "@App": "./src/App.js",
           "@Source": "./src/*",
           "@Commons": "./src/common"
         }
