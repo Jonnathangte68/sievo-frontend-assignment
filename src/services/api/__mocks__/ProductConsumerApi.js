@@ -6,12 +6,10 @@ class ProductConsumerApi {
   }
 
   fetchGetRequest(request, callback) {
-    console.log("mock product consumer");
-    callback([1, 2, 3]);
-    // var p = Promise.resolve([1, 2, 3]);
-    // p.then(function(v) {
-    //   callback(v);
-    // });
+    var p = Promise.resolve([1, 2, 3]);
+    p.then(function(v) {
+      callback(v);
+    });
   }
 }
 

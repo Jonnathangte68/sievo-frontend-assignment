@@ -8,8 +8,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    padding-right: 3px !important;
-    padding-left: 3px !important;
+    text-align: center;
   }
 }
 
@@ -21,15 +20,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    padding-right: 3px !important;
-    padding-left: 3px !important;
+    text-align: center;
   }
-}
-
-.leftAlignedColumn {
-  text-align: left;
-}
-
-.centeredAlignedColumn {
-  text-align: center;
 }

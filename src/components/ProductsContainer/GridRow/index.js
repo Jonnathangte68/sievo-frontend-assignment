@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Row } from "react-bootstrap";
 import GridCol from "../GridCol";
 import uuid from "react-uuid";
-import styles from "./styles.module.css";
+// import styles from "./styles.module.css";
 
 class GridRow extends Component {
   getCellText = column => (column && column !== "NULL" ? String(column) : "");
@@ -24,8 +25,11 @@ class GridRow extends Component {
     return results;
   }
 
+  // render() {
+  //   return <div className={styles.flexGrid}>{this.renderCells()}</div>;
+  // }
   render() {
-    return <div className={styles.flexGrid}>{this.renderCells()}</div>;
+    return <Row>{this.renderCells()}</Row>;
   }
 }
 

@@ -3,6 +3,7 @@ import GridRow from "../GridRow";
 import { transformUtf8 } from "../../../common/utils";
 import uuid from "react-uuid";
 import PropTypes from "prop-types";
+import GridHeader from "../GridHeader";
 
 class DataGrid extends Component {
   getFilteredResults = rows => {
@@ -17,7 +18,14 @@ class DataGrid extends Component {
 
   render() {
     const rows = this.getFilteredResults(this.props.rows);
-    return rows.map(row => <GridRow key={uuid()} columns={row} />);
+    return (
+      <>
+        <GridHeader />
+        {rows.map(row => (
+          <GridRow key={uuid()} columns={row} />
+        ))}
+      </>
+    );
   }
 }
 

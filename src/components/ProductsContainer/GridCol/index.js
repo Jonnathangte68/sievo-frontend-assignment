@@ -1,22 +1,30 @@
 import React, { Component } from "react";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Col, OverlayTrigger, Tooltip } from "react-bootstrap";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { checkFloat, addZeros, isDate } from "../../../common/utils";
 import uuid from "react-uuid";
 import styles from "./styles.module.css";
 
 class GridCol extends Component {
-  isDate = dateString => Date.parse(dateString) && dateString.length > 1;
-
   parseContent = content => {
-    if (this.isDate(content)) {
-      return moment(content).format("D.M.Y");
+    if (isDate(content)) {
+      const parsedDate = moment(content).format("D.M.Y");
+      const days = parsedDate.split(".")[0];
+      const months = parsedDate.split(".")[1];
+      const years = parsedDate.split(".")[2];
+      return `${addZeros(days, 2)}.${addZeros(months, 2)}.${years}`;
+    }
+    if (checkFloat(content)) {
+      return (
+        Math.round((parseFloat(content) + Number.EPSILON) * 100) / 100
+      ).toFixed(2);
     }
     return content;
   };
 
   renderTooltip = props => {
-    const content = this.parseContent(this.props.title);
+    const content = this.props.title;
     return (
       <Tooltip {...props} show={props.show.toString()}>
         {content}
@@ -26,33 +34,46 @@ class GridCol extends Component {
 
   renderTooltipCol = () => (
     <OverlayTrigger key={uuid()} placement="top" overlay={this.renderTooltip}>
-      <div
-        className={this.getColumnSizeClass(this.props.columnNumber)}
+      <Col
         key={uuid()}
+        className={[
+          styles.columnTextStyle,
+          this.getAlignment(this.props.columnNumber)
+        ]}
+        xs={this.getColumnSize(this.props.columnNumber)}
+        md={this.getColumnSize(this.props.columnNumber)}
       >
-        <p className={styles.colContent}>
-          {this.parseContent(this.props.title)}
-        </p>
-      </div>
+        {this.parseContent(this.props.title)}
+      </Col>
     </OverlayTrigger>
   );
 
-  getColumnSizeClass = column => {
+  getColumnSize = column => {
     switch (column) {
       case 0:
-        return styles.tinyCenterCol;
+        return "auto";
       case 1:
-        return styles.doubleCol;
+        return 3;
+      case 6:
       case 7:
+      case 2:
       case 5:
+        return 1;
       case 4:
       case 3:
-      case 2:
-        return styles.regularCenterCol;
-      case 6:
-        return styles.mediumCenterCol;
+        return 2;
       default:
-        return styles.regularCol;
+        return 1;
+    }
+  };
+
+  getAlignment = column => {
+    switch (column) {
+      case 1:
+      case 7:
+        return styles.leftAlignedColumn;
+      default:
+        return styles.centeredAlignedColumn;
     }
   };
 
@@ -60,7 +81,14 @@ class GridCol extends Component {
     if (this.props.title) {
       return this.renderTooltipCol();
     }
-    return <div className={this.getColumnSizeClass(this.props.columnNumber)} />;
+    return (
+      <Col
+        key={uuid()}
+        className={styles.columnTextStyle}
+        xs={this.getColumnSize(this.props.columnNumber)}
+        md={this.getColumnSize(this.props.columnNumber)}
+      ></Col>
+    );
   }
 }
 
