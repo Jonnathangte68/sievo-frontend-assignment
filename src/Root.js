@@ -3,12 +3,12 @@ import Store from "./services/store";
 
 class Root extends React.Component {
   state = {
-    filters: [],
+    filter: "",
     products: [],
     loading: true,
     setLoading: loading => this.setLoading(loading),
     setProducts: products => this.setProducts(products),
-    setFilters: filters => this.setProducts(filters)
+    setFilter: filter => this.setFilter(filter)
   };
 
   setLoading = loading => {
@@ -19,8 +19,8 @@ class Root extends React.Component {
     this.setState({ products });
   };
 
-  setFilters = filters => {
-    this.setState({ filters });
+  setFilter = filter => {
+    this.setState({ filter });
   };
 
   render() {

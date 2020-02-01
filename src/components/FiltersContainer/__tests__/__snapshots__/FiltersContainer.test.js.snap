@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<Container
+  fluid={false}
+>
+  <div
+    className="container"
+  >
+    <h3>
+      Filter By:
+       
+      <span
+        className="filterTerm"
+      />
+    </h3>
+    <FilterForm />
+  </div>
+</Container>
+`;

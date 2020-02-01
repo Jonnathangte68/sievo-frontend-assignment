@@ -4,7 +4,7 @@ class ProductConsumerApi {
   base_path = process.env.REACT_APP_API_URL;
 
   fetchGetRequest(request, callback) {
-    console.log("request to send: ", process.env.REACT_APP_API_URL);
+    console.log("calling the real thing");
     const compositeRequest = `${this.base_path}${request}`;
     axios
       .get(compositeRequest)

@@ -4,13 +4,15 @@ import toJson from "enzyme-to-json";
 import Store from "../../../services/store";
 import App from "../index";
 
+jest.mock("../../../services/api/ProductConsumerApi");
+
 const initialState = {
-  filters: ["xxx"],
+  filter: "xxx",
   products: ["xxx"],
   loading: true,
   setLoading: jest.fn(),
   setProducts: jest.fn(),
-  setFilters: jest.fn()
+  setFilter: jest.fn()
 };
 
 const element = (
@@ -24,10 +26,9 @@ test("it renders", () => {
   expect(toJson(wrapper)).toMatchSnapshot();
 });
 
-describe("componentDidMount", () => {
-  test("fetch products from the service and callback", async () => {
-    const component = mount(element);
-    const spy = jest.spyOn(component.instance(), "callbackApi");
-    expect(spy).toHaveBeenCalled();
-  });
+test("fetch products from the service and callback", async () => {
+  const component = mount(element);
+  const spy = jest.spyOn(component.instance(), "callbackApi");
+  await Promise.resolve();
+  expect(spy).toHaveBeenCalled();
 });

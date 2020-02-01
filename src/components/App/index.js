@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductConsumerApi from "../../services/api/ProductConsumerApi";
 import { FETCH_PRODUCTS_API_REQUEST } from "../../common/GlobalConstants";
+import FiltersContainer from "../FiltersContainer";
 import ProductsContainer from "../ProductsContainer";
 import Store from "../../services/store";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,7 +14,6 @@ class App extends Component {
   updateProductsState = products => this.context.setProducts(products);
 
   callbackApi = response => {
-    console.log("callbackApi response: ", response);
     this.updateLoadingState(false);
     this.updateProductsState(response.data);
   };
@@ -23,12 +23,13 @@ class App extends Component {
     productsApi.fetchGetRequest(FETCH_PRODUCTS_API_REQUEST, this.callbackApi);
   };
 
-  renderContent = (loading, products) => {
+  renderContent = loading => {
     if (loading) {
       return <div>Loading...</div>;
     }
     return (
       <>
+        <FiltersContainer />
         <ProductsContainer />
       </>
     );
