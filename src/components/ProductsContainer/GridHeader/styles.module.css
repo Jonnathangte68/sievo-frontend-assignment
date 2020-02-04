@@ -5,10 +5,10 @@
     text-transform: capitalize;
     font-family: "Libre Baskerville", serif;
     font-size: 0.2rem;
-    text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     text-align: center;
+    padding: 0px !important;
   }
 }
 
@@ -17,9 +17,14 @@
     text-transform: capitalize;
     font-family: "Libre Baskerville", serif;
     font-size: 0.7rem;
-    text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     text-align: center;
+    padding: 0px !important;
   }
+}
+
+.sortLeft {
+  text-align: left;
+  padding-left: "4px";
 }

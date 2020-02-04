@@ -6,9 +6,15 @@ class Root extends React.Component {
     filter: "",
     products: [],
     loading: true,
+    sort: "NONE",
     setLoading: loading => this.setLoading(loading),
     setProducts: products => this.setProducts(products),
-    setFilter: filter => this.setFilter(filter)
+    setFilter: filter => this.setFilter(filter),
+    setSort: sort => this.setSort(sort)
+  };
+
+  setSort = sort => {
+    this.setState({ sort });
   };
 
   setLoading = loading => {

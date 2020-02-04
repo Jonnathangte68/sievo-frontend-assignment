@@ -10,7 +10,11 @@ class ProductsContainer extends Component {
       <Store.Consumer>
         {context => (
           <Container fluid={true}>
-            <DataGrid rows={context.products} filter={context.filter} />
+            <DataGrid
+              rows={context.products}
+              filter={context.filter}
+              sort={context.sort}
+            />
           </Container>
         )}
       </Store.Consumer>

@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
+import ErrorBoundary from "../ErrorBoundary";
 import ProductConsumerApi from "../../services/api/ProductConsumerApi";
 import { FETCH_PRODUCTS_API_REQUEST } from "../../common/GlobalConstants";
-import FiltersContainer from "../FiltersContainer";
-import ProductsContainer from "../ProductsContainer";
 import Store from "../../services/store";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+const FiltersContainer = lazy(() => import("../FiltersContainer"));
+const ProductsContainer = lazy(() => import("../ProductsContainer"));
 
 class App extends Component {
   static contextType = Store;
@@ -23,15 +25,20 @@ class App extends Component {
     productsApi.fetchGetRequest(FETCH_PRODUCTS_API_REQUEST, this.callbackApi);
   };
 
-  renderContent = loading => {
-    if (loading) {
-      return <div>Loading...</div>;
-    }
+  renderLoader = () => {
+    return <div>Loading...</div>;
+  };
+
+  renderContent = () => {
     return (
-      <>
-        <FiltersContainer />
-        <ProductsContainer />
-      </>
+      <ErrorBoundary>
+        <Suspense fallback={this.renderLoader()}>
+          <>
+            <FiltersContainer />
+            <ProductsContainer />
+          </>
+        </Suspense>
+      </ErrorBoundary>
     );
   };
 
