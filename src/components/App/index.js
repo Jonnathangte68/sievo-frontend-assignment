@@ -1,7 +1,7 @@
 import React, { Component, lazy, Suspense } from "react";
 import ErrorBoundary from "../ErrorBoundary";
 import ProductConsumerApi from "../../services/api/ProductConsumerApi";
-import { FETCH_PRODUCTS_API_REQUEST } from "../../common/GlobalConstants";
+import { FETCH_PRODUCTS_API_REQUEST } from "../../common/globalconstants";
 import Store from "../../services/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { StyleSheet } from "./styles";

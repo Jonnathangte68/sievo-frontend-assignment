@@ -7,7 +7,7 @@ export const transformUtf8 = text => {
 export const checkFloat = floatNumber => {
   return (
     !(String(parseInt(floatNumber)).length === floatNumber.length) &&
-    !isNaN(Number(floatNumber.trim()))
+    !isNaN(Number(String(floatNumber).trim()))
   );
 };
 

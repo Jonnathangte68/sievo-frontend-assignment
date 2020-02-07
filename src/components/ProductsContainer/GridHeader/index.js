@@ -3,7 +3,7 @@ import Store from "../../../services/store";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
 import Sorter from "../Sorter";
-import { DEFAULT_HEADER_COLUMNS } from "@Commons/GlobalConstants";
+import { DEFAULT_HEADER_COLUMNS } from "@Commons/globalconstants";
 import styles from "./styles.module.css";
 
 class GridHeader extends Component {

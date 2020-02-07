@@ -3,7 +3,8 @@ import React from "react";
 /**
  * @inheritdoc
  * @license
- * @author gregberge https://reactjs.org/docs/code-splitting.html
+ * @author gregberge
+ * @package https://reactjs.org/docs/code-splitting.html
  */
 class ErrorBoundary extends React.Component {
   constructor(props) {
