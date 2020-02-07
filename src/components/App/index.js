@@ -4,6 +4,8 @@ import ProductConsumerApi from "../../services/api/ProductConsumerApi";
 import { FETCH_PRODUCTS_API_REQUEST } from "../../common/GlobalConstants";
 import Store from "../../services/store";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { StyleSheet } from "./styles";
+import injectSheet from "react-jss";
 
 const FiltersContainer = lazy(() => import("../FiltersContainer"));
 const ProductsContainer = lazy(() => import("../ProductsContainer"));
@@ -26,7 +28,12 @@ class App extends Component {
   };
 
   renderLoader = () => {
-    return <div>Loading...</div>;
+    const { classes } = this.props;
+    return (
+      <div className={classes.loadingContainer}>
+        <h3 className={classes.loadingText}>Loading...</h3>
+      </div>
+    );
   };
 
   renderContent = () => {
@@ -52,4 +59,4 @@ class App extends Component {
 }
 
 App.contextType = Store;
-export default App;
+export default injectSheet(StyleSheet)(App);

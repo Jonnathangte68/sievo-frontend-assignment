@@ -8,13 +8,9 @@ class ProductsContainer extends Component {
   render() {
     return (
       <Store.Consumer>
-        {context => (
+        {store => (
           <Container fluid={true}>
-            <DataGrid
-              rows={context.products}
-              filter={context.filter}
-              sort={context.sort}
-            />
+            <DataGrid rows={store.products} />
           </Container>
         )}
       </Store.Consumer>

@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * @inheritdoc
+ * @license
+ * @author gregberge https://reactjs.org/docs/code-splitting.html
+ */
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);

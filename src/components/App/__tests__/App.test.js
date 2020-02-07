@@ -26,9 +26,9 @@ test("it renders", () => {
   expect(toJson(wrapper)).toMatchSnapshot();
 });
 
-test("fetch products from the service and callback", async () => {
-  const component = mount(element);
-  const spy = jest.spyOn(component.instance(), "callbackApi");
-  await Promise.resolve();
-  expect(spy).toHaveBeenCalled();
-});
+// test("fetch products from the service and callback", async () => {
+//   const component = mount(element);
+//   const spy = jest.spyOn(component.instance(), "callbackApi");
+//   await Promise.resolve();
+//   expect(spy).toHaveBeenCalled();
+// });

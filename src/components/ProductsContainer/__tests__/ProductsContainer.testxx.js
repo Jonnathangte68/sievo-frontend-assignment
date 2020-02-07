@@ -44,7 +44,9 @@ test("it renders", () => {
 describe("Inner components", () => {
   test("should display loading while retrive data from the api", () => {
     const component = mount(parentElementLoading);
-    expect(component.html()).toBe("<div>Loading...</div>");
+    expect(component.html()).toBe(
+      '<div class="App-loadingContainer-0-1-1"><h3 class="App-loadingText-0-1-2">Loading...</h3></div>'
+    );
   });
 
   test("should render data grid after loading finished", () => {
