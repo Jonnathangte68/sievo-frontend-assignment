@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap");
+
+@media screen and (min-width: 1px) {
+  .columnTextStyle {
+    text-transform: capitalize;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.2rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 3px !important;
+    padding-left: 3px !important;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .columnTextStyle {
+    text-transform: capitalize;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 3px !important;
+    padding-left: 3px !important;
+  }
+}
+
+.leftAlignedColumn {
+  text-align: left;
+}
+
+.centeredAlignedColumn {
+  text-align: center;
+}
